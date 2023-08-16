@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: console
+  name: console
+spec:
+  containers:
+  - command:
+    - tail
+    - -f
+    image: docker.io/jutiruud/test-connect2
+    imagePullPolicy: Always
+    name: console
