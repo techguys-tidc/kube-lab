@@ -1,4 +1,4 @@
-# Lab namespace
+# Lab deployment
 
 ## task 1 Get Deployment
 
@@ -39,7 +39,7 @@ kubectl delete deployment [DEPLOYMENT_NAME]
 kubectl apply -f deployment.yaml
 ```
 
-## Please Answer the questions (put your answer to google sheet).
+## Please answer the questions (put your answer to google sheet).
 
  6. Show result after scale deployment.
  7. After Create deployment using manifast, How many pod which come form the same deployment ?

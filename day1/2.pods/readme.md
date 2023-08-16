@@ -1,4 +1,4 @@
-# Lab namespace
+# Lab pod
 
 ## task 1 Get Pod
 
@@ -34,7 +34,7 @@ kubectl delete pod [POD_NAME]
 kubectl apply -f pod.yaml
 ```
 
-## Please Answer the questions (put your answer to google sheet).
+## Please answer the questions (put your answer to google sheet).
 
  3. What namespace does the pod name 'traning' run?
  4. Show result after create pod with your name
