@@ -33,7 +33,7 @@ kubectl describe deployment [DEPLOYMENT_NAME]
 kubectl delete deployment [DEPLOYMENT_NAME]
 ```
 
-## task 5 Create deployment using manifast
+## task 6 Create deployment using manifast
 
 ```
 kubectl apply -f deployment.yaml

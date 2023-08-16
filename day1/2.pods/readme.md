@@ -17,7 +17,7 @@ kubectl get pod [POD_NAME]
 kubectl run [POD_NAME] --image nginx
 ```
 
-## task 2 Describe Pod
+## task 3 Describe Pod
 
 ```
 kubectl describe pod [POD_NAME]
