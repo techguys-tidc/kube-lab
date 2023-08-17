@@ -3,8 +3,17 @@
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 
-# Download kubeconfig 
+# download kubeconfig 
 
+[kubeconfig](https://github.com/techguys-tidc/kube-lab/blob/master/day1/0.prepare/kubeconfig)
+
+# use Kubeconfig
+
+```
+1. export KUBECONFIG=/path/kubeconfig/file
+
+2. Place kubeconfig to $HOME/.kube/config
+```
 
 # change namespace
 ```
