@@ -3,6 +3,9 @@
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
 
+# Download kubeconfig 
+
+
 # change namespace
 ```
 kubectl config set-context --current --namespace=<namespace-name>
@@ -26,4 +29,5 @@ https://forms.gle/yxNdt3fC36q2p1Fc6
 # Google sheet (put answers in tab Lab Check Day 1)
 
 https://docs.google.com/spreadsheets/d/149SqaLmO3gwAzPmB675hllRnNI7f0y6gYpWeyOM1ZZ0/edit?usp=sharing
+
 
