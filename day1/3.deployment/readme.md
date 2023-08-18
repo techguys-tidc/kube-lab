@@ -14,12 +14,12 @@ kubectl get deployment [DEPLOYMENT_NAME]
 ## task 2 Create deployment
 
 ```
-kubectl create deployment [DEPLOYMENT_NAME] --image nginx --replica 1
+kubectl create deployment [DEPLOYMENT_NAME] --image nginx --replicas 1
 ```
 ## task 3 Describe deployment
 
 ```
-kubectl scale deployment [DEPLOYMENT_NAME] --replica 2
+kubectl scale deployment [DEPLOYMENT_NAME] --replicas 2
 ```
 
 ## task 4 Describe deployment
