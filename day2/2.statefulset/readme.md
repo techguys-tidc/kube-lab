@@ -54,14 +54,13 @@ kubectl delete pod <pod-name>
 
 ```
 kubectl exec -it <pod-name> -- bash -c "cat /usr/share/nginx/html/index.html"
-
+```
 or access via browser
-
+```
 kubectl port-forward <pod-name> 8001:80
 
-and then open your browser access http://localhost:8001 or http://127.0.0.1:8001
 ```
-
+and then open your browser access http://localhost:8001 or http://127.0.0.1:8001
 
 
 ## Task
