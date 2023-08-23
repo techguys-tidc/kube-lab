@@ -2,17 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   labels:
-    app: nginx-demo
-  name: nginx-demo
+    app: nginx-lab-network
+  name: nginx-lab-network
 spec:
-  ingressClassName: kong
+  ingressClassName: nginx
   rules:
-  - host: nginx-demo.poc.workisboring.com
+  - host: nginx-lab-network.poc.workisboring.com  ## Change nginx-lab-network to your name.
     http:
       paths:
       - backend:
           service:
-            name: nginx
+            name: nginx-lab-network
             port:
               number: 80
         path: /

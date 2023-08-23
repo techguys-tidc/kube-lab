@@ -29,7 +29,7 @@ spec:
       name: www
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "my-storage-class"
+      storageClassName: longhorn
       resources:
         requests:
-          storage: 1Gi
+          storage: 100Mi

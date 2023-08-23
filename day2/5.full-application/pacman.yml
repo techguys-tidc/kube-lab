@@ -1,0 +1,110 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: mongo-storage
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: mongo
+  name: mongo
+spec:
+  type: ClusterIP
+  ports:
+    - port: 27017
+      targetPort: 27017
+  selector:
+    name: mongo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: mongo
+  name: mongo
+spec:
+  selector:
+    matchLabels:
+      name: mongo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: mongo
+    spec:
+      containers:
+      - image: mongo:2.2.7
+        name: mongo
+        ports:
+        - name: mongo
+          containerPort: 27017
+        volumeMounts:
+          - name: mongo-db
+            mountPath: /data/db
+      volumes:
+        - name: mongo-db
+          persistentVolumeClaim:
+            claimName: mongo-storage
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pacman
+  labels:
+    name: pacman
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    name: pacman
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: pacman
+  name: pacman
+spec:
+  selector:
+    matchLabels:
+      name: pacman
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: pacman
+    spec:
+      containers:
+      - image: tcr.tks.trueidc.com/k8s-sample-app/pacman-nodejs-app:1.0
+        name: pacman
+        ports:
+        - containerPort: 8080
+          name: http-server
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pacman
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: pacman.0hqes8atssf9.th-beta.tks.trueidc.com  #EDIT HERE
+    http:
+      paths:
+      - backend:
+          service:
+            name: pacman
+            port:
+              number: 80
+        path: /
+        pathType: Prefix

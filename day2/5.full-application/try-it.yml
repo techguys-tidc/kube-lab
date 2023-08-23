@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: echo-pvc
+  annotations:
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Mi
+  storageClassName: loonghorns
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: echo
+  name: echo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: echo
+      teir: echoserver
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: echo
+        teir: echoserver
+    spec:
+      containers:
+      - image: gcr.io/kubernetes-e2e-test-images/echoserver:2.1
+        imagePullPolicy: IfNotPresent
+        name: echoserver
+        resources:
+          limits:
+            memory: "100Mi"
+            cpu: "100m"
+        volumeMounts:
+        - mountPath: /data
+          name: data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: echo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-svc
+  labels:
+    app: echo-svc
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+    name: web
+  selector:
+    app: echo
+
