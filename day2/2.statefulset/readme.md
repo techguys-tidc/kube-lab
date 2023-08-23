@@ -30,11 +30,11 @@ kubectl get sts
 ```
 See verbose output
 ```
-kubectl describe sts <pvc-name>
+kubectl describe sts <sts-name>
 ```
 Get sts's YAML
 ```
-kubectl get sts <pvc-name> -o yaml
+kubectl get sts <sts-name> -o yaml
 ```
 
 ### 2. Explore StatefulSets.
