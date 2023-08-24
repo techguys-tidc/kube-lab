@@ -64,6 +64,7 @@ kubectl get svc <svc-name> -o yaml
 ### 3. Create ingress.
 Copy file 3-ingress.yml and apply to your namespace.
 
+
 Edit host name in 3-ingress.yml
 ```
 your_name.training.dnsfor.me
