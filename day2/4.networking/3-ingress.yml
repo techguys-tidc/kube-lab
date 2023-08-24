@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: nginx-lab-network.poc.workisboring.com  ## Change nginx-lab-network to your name.
+  - host: your_name.training.dnsfor.me  
     http:
       paths:
       - backend:
