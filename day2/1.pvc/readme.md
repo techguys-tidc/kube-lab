@@ -38,22 +38,28 @@ kubectl get pvc <pvc-name> -o yaml
 ```
 
 
-### 2. Create deployment with configmap.
-Please copy file 2-deployment-with-cm.yml and apply to your namespace.
+### 2. Create deployment.
+Please copy file 2-deployment.yml and apply to your namespace.
 ```
-kubectl apply -f 2-deployment-with-cm.yml
+kubectl apply -f 2-deployment.yml
+
 ```
-Get configmap 
+Test how deployment persist data.
 ```
-kubectl get configmaps
+kubectl get pod
+kubectl exec -it <pod-name> -- bash -c "echo Hi! > /usr/share/nginx/html/index.html"
 ```
-Get configmap's YAML  
+Try to delete pod which are created from deployment and see what's happen?
 ```
-kubectl get configmaps index-html-configmap -o yaml
+kubectl delete pod <pod-name>
 ```
+```
+kubectl exec -it <pod-name> -- bash -c "cat /usr/share/nginx/html/index.html"
+```
+
 Test your application with port-forword.
 ```
-kubectl port-forward deployments/<deployments-name> 8000:80
+kubectl port-forward <pod-name> 8000:80
 
 and then open your browser access http://localhost:8000 or http://127.0.0.1:8000
 ```
