@@ -1,15 +1,3 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: index-html-configmap
-data:
-  index.html: |
-    <html>
-    <h1>Welcome</h1>
-    </br>
-    <h1>Hi! This is a configmap Index file </h1>
-    </html
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -39,15 +27,8 @@ spec:
         volumeMounts:
         - mountPath: /usr/share/nginx/html
           name: data
-        - mountPath: /usr/share/nginx/html/
-          name: nginx-index-file
       volumes:
       - name: data
         persistentVolumeClaim:
           claimName: nginx-pvc-rwo
-      - name: nginx-index-file
-        configMap:
-          name: index-html-configmap
-          items:
-            - key: index.html
-              path: index.html
+
