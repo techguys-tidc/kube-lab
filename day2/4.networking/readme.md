@@ -65,12 +65,7 @@ kubectl get svc <svc-name> -o yaml
 Copy file 3-ingress.yml and apply to your namespace.
 
 
-Edit host name in 3-ingress.yml
-```
-your_name.training.dnsfor.me
-```
-
-Before apply file 3-ingress.yml, please change host (nginx-lab-network.poc.workisboring.com) to your domain name.
+Before apply file 3-ingress.yml, please change host (your_name.training.dnsfor.me) to your flavor.
 ```
 kubectl apply -f 2-ingress.yml
 ```
