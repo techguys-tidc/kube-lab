@@ -42,7 +42,6 @@ kubectl get pvc <pvc-name> -o yaml
 Please copy file 2-deployment.yml and apply to your namespace.
 ```
 kubectl apply -f 2-deployment.yml
-
 ```
 Test how deployment persist data.
 ```
@@ -53,11 +52,11 @@ Try to delete pod which are created from deployment and see what's happen?
 ```
 kubectl delete pod <pod-name>
 ```
+
+Test your application with port-forword.
 ```
 kubectl exec -it <pod-name> -- bash -c "cat /usr/share/nginx/html/index.html"
 ```
-
-Test your application with port-forword.
 ```
 kubectl port-forward <pod-name> 8000:80
 
