@@ -23,7 +23,11 @@ Please copy file pacman.yml and apply to your namespace.
 ```
 kubectl apply -f pacman.yml
 ```
-Change ingress host to your desired name. Example [your_name]-pacman.training.dnsfor.me:2080
+Change ingress host to your desired name. 
+Example 
+```
+[your_name]-pacman.training.dnsfor.me:2080
+```
 
 
 ### 2. try-it.
