@@ -92,6 +92,4 @@ After Create all objects Test you application.
 
 Access your domain.
 Example 
-nginx-lab-network.poc.workisboring.com 
-
-
+<name>.training.dnsfor.me:2080
