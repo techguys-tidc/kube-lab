@@ -56,8 +56,25 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 8080
     name: web
   selector:
     app: echo
-
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: echo
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: issy-echo.training.dnsfor.me  ## Change to YOUR NAME
+    http:
+      paths:
+      - backend:
+          service:
+            name: echo-svc
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
