@@ -93,6 +93,6 @@ After Create all objects Test you application.
 Access your domain.
 Example  
 
-'''
-<name>.training.dnsfor.me:2080
-'''
+```
+[your_name].training.dnsfor.me:2080
+```
