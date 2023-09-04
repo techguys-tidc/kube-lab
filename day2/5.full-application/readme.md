@@ -15,16 +15,15 @@ kubectl config current-context
 kubectl config view
 ```
 
+![image](https://github.com/techguys-tidc/kube-lab/assets/110895328/3ec31b42-c755-4193-982b-e21480a473e5)
+
+
 ### 1. pacman 
 Please copy file pacman.yml and apply to your namespace.
 ```
 kubectl apply -f pacman.yml
 ```
 Change ingress host to your desired name. Example [your_name]-pacman.training.dnsfor.me:2080
-
-![image](https://github.com/techguys-tidc/kube-lab/assets/110895328/3ec31b42-c755-4193-982b-e21480a473e5)
-
-
 
 
 ### 2. try-it.
