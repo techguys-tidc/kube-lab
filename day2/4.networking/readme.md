@@ -91,4 +91,8 @@ kubectl get ing <ing-name> -o yaml
 After Create all objects Test you application.
 
 Access your domain.
-Example  <name>.training.dnsfor.me:2080
+Example  
+
+'''
+<name>.training.dnsfor.me:2080
+'''
